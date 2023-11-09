@@ -2,6 +2,7 @@ import { AppBar, Box, IconButton, Stack, styled, Toolbar, Typography } from "@mu
 import { useAppDispatch, useAppSelector } from "../../redux/Store"
 import { Login, Logout } from "@mui/icons-material"
 import { login, logout } from "../../redux/AuthSlice"
+import { Env } from "../../config/env"
 
 
 export const Header = () => {
@@ -24,7 +25,7 @@ export const Header = () => {
   }))
 
   const toggleLogin = () => {
-    dispatch(authState.token ? logout() : login("test", 'test'))
+    dispatch(authState.token ? logout() : login(Env.DEFAULT_EMAIL, Env.DEFAULT_PASSWORD))
   }
   console.log(authState)
 
