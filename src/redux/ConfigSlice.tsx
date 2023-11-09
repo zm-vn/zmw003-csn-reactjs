@@ -9,7 +9,7 @@ interface ConfigState {
 const initialState: ConfigState = {
   activeMode: "dark",
   activeTheme: "BLUE_THEME",
-  topbarHeight: 170,
+  topbarHeight: 70,
 }
 
 export const ConfigSlice = createSlice({

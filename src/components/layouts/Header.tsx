@@ -1,24 +1,34 @@
-import { AppBar, styled, Toolbar, Typography } from "@mui/material"
+import { AppBar, Box, IconButton, Stack, styled, Toolbar, Typography } from "@mui/material"
 import { useAppSelector } from "../../redux/Store"
+import { Login, Logout } from "@mui/icons-material"
+
 
 export const Header = () => {
-  const customizer = useAppSelector((state) => state.config)
+  const configState = useAppSelector((state) => state.config)
+  const authState = useAppSelector(state => state.auth)
+
   const AppBarStyled = styled(AppBar)(({ theme }) => ({
     boxShadow: 'none',
     background: theme.palette.background.paper,
     justifyContent: 'center',
     backdropFilter: 'blur(4px)',
     [theme.breakpoints.up('lg')]: {
-      minHeight: customizer.topbarHeight,
+      minHeight: configState.topbarHeight,
     },
   }))
   const ToolbarStyled = styled(Toolbar)(({ theme }) => ({
     width: '100%',
     color: theme.palette.text.secondary,
   }))
-  return <AppBarStyled position={"sticky"} color={"default"}>
+  return <AppBarStyled position={"sticky"} color={"secondary"}>
     <ToolbarStyled>
-      <Typography variant={"h1"}>HEADER</Typography>
+      <Typography>LOGO HERE</Typography>
+      <Box flexGrow={1}/>
+      <Stack spacing={1} direction="row" alignItems="center">
+        <IconButton>
+          {authState.token ? <Logout/> : <Login/>}
+        </IconButton>
+      </Stack>
     </ToolbarStyled>
   </AppBarStyled>
 }

@@ -1,10 +1,10 @@
-import { Outlet } from "react-router-dom"
-import { Box, Container, styled } from "@mui/material"
-import { Header } from "./Header"
 import { MainWrapper } from "./MainWrapper"
 import { PageWrapper } from "./PageWrapper"
+import { Header } from "./Header"
+import { Box, Container } from "@mui/material"
+import { Outlet } from "react-router-dom"
 
-const PublicLayout = () => {
+const ProtectedLayout = () => {
   return <MainWrapper>
     <PageWrapper
       className="page-wrapper">
@@ -18,4 +18,4 @@ const PublicLayout = () => {
   </MainWrapper>
 }
 
-export default PublicLayout
+export default ProtectedLayout
