@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { AppDispatch } from "./Store"
+import { AuthApi } from "../api/AuthApi"
 
 interface AuthState {
   token?: string
@@ -21,13 +22,14 @@ export const AuthSlice = createSlice({
 const { actions } = AuthSlice
 
 export const login = (email: string, password: string) => {
-  return (dispatch: AppDispatch) => {
+  return async (dispatch: AppDispatch) => {
     dispatch(actions.login({ token: `${email}-${password}` }))
   }
 }
 
 export const logout = () => {
-  return (dispatch: AppDispatch) => {
+  return async (dispatch: AppDispatch) => {
+    AuthApi.clearCredentials()
     dispatch(actions.logout())
   }
 }
