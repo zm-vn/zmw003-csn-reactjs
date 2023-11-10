@@ -11,7 +11,7 @@ export const AuthSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    login: (state, action) => {
+    login: (state, action: { type: string, payload: AuthState }) => {
       state.token = action.payload.token
     },
     logout: state => state.token = undefined,
