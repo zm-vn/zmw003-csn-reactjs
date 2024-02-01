@@ -6,6 +6,5 @@ import { useAppSelector } from "../redux/Store"
 export const Router = () => {
   const authState = useAppSelector(state => state.auth)
   const isAuth = !!authState.token
-  const routes = useRoutes(isAuth ? ProtectedRouter : PublicRouter)
-  return routes
+  return useRoutes(isAuth ? ProtectedRouter : PublicRouter)
 }

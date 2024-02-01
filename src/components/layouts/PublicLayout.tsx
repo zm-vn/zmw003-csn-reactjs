@@ -19,7 +19,7 @@ const PublicLayout = () => {
         </Box>
       </Container>
     </PageWrapper>
-    <AppDialogs/>
+    {/*<AppDialogs/>*/}
   </MainWrapper>
 }
 
