@@ -3,7 +3,10 @@ import { PageWrapper } from "./PageWrapper"
 import { Header } from "./Header"
 import { Box, Container } from "@mui/material"
 import { Outlet } from "react-router-dom"
+import { Loadable } from "../common/Loadable"
+import { lazy } from "react"
 
+const AppDialogs = Loadable(lazy(() => import('./AppDialogs')))
 const ProtectedLayout = () => {
   return <MainWrapper>
     <PageWrapper
@@ -15,6 +18,7 @@ const ProtectedLayout = () => {
         </Box>
       </Container>
     </PageWrapper>
+    <AppDialogs/>
   </MainWrapper>
 }
 

@@ -5,6 +5,7 @@ import { AuthSlice } from "./AuthSlice"
 
 const reducers = {
   config: ConfigSlice.reducer,
+  app: AuthSlice.reducer,
   auth: AuthSlice.reducer,
 }
 
